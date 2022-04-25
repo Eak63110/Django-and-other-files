@@ -1,0 +1,27 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+
+{% block title %}: My Todo list {% endblock title %}
+{% block content %}
+
+<h3>My Todo List</h3>
+        <ul>
+            {% for i in all_items %} 
+            <li>{{i.todolist}}
+            </li>
+            {% endfor %}
+        </ul>
+
+        <form method = "post">{% csrf_token %}
+            <input type="text" name="todolist" id="todolist">
+            <input type="submit" value="Add Todo Item">
+        </form> 
+
+      
+{% endblock content %}
+
+
+
+
+

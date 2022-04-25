@@ -1,0 +1,52 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+
+{% block title %}Contact us{% endblock title %}
+{% block content %}
+
+{% if status %}
+
+      {% if status == 'success' %}
+            <div class="alert alert-success" role="alert"><strong>Send Email Already</strong></div>                                
+      {% else %}
+            <div class="alert alert-warning" role="alert"><strong>Not Success</strong>
+</div>
+      {% endif %}
+
+{% endif %}
+
+<div class="container">
+
+      <form method="POST">
+            {% csrf_token %}
+
+            <div class="form-group">
+                  <label for="email">To</label>
+                  <input lass="form-control" type="email" name="email" id="email">
+            </div><br>
+
+            <div class="form-group">
+                  <label for="subject">Subject</label>
+                  <input lass="form-control" type="text" name="subject" id="subject">
+            </div><br>
+
+            <div class="form-group">
+                  <label for="detail">Content</label>
+                  <textarea class="form-control" rows="5" id="detail" name="detail"></textarea>
+            </div><br>
+
+            <button type="submit" class="btn btn-primary">Send Email</button>
+            
+      </form>
+      
+
+</div>
+
+      
+{% endblock content %}
+
+
+
+
+
